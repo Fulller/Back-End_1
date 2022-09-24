@@ -9,8 +9,10 @@ module.exports = {
       lastName: 'Day',
       address: 'Viet Nam',
       gender: 1,
-      typeRole: 'ROLE',
-      keyRole: 'R1',
+      roleId: 'OK',
+      phoneNumber: '0968449574',
+      positionId: 'An Giang',
+      image: 'http://abcxyz',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
