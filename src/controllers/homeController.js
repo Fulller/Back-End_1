@@ -25,10 +25,24 @@ let displayCRUD = async (req, res) => {
     return res.render('displayCRUD.ejs',{dataTable: data});
 }
 
+let editCRUD = async (req, res) => {
+    let userId = req.query.id;
+    let User = await CRUDservice.getUserById(userId);
+    return res.render('editCRUD.ejs',{User:User})
+}
+
+let updateCRUD = async (req, res) => {
+    let body = req.body;
+    let allData = await CRUDservice.updataUser(body);
+    return res.render('displayCRUD.ejs',{dataTable: allData});
+}
+
 module.exports = {
     getHomePage,
     getAboutPage,
     getCRUD,
     postCRUD,
-    displayCRUD
+    displayCRUD,
+    editCRUD,
+    updateCRUD
 }
