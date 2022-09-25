@@ -19,14 +19,9 @@ module.exports = {
       lastName: 'Day',
       address: 'Viet Nam',
       gender: 1,
-<<<<<<< HEAD
       roleId: 'OK',
       phoneNumber: '0968449574',
       positionId: 'An Giang',
-=======
-      roleId: 'ok',
-      phoneNumber: '0968449574',
->>>>>>> dev
       image: 'http://abcxyz',
       createdAt: new Date(),
       updatedAt: new Date()
