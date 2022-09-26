@@ -2,12 +2,7 @@ import { json } from 'body-parser'
 import db from '../models/index'
 import CRUDservice from '../services/CRUDservice'
 let getHomePage = async (req,res) =>{
-    try{
-        let data =  await db.User.findAll()
-        return res.render('homepage.ejs',{data: JSON.stringify(data)})
-    } catch (e) {
-        console.log(e)
-    }
+    return res.render('homepage.ejs')
 }
 let getAboutPage = (req,res) =>{
     return res.render('aboutpage.ejs')
@@ -17,7 +12,7 @@ let getCRUD = (req, res) => {
 }
 let postCRUD = async (req, res) => {
     await CRUDservice.createNewUser(req.body)
-    return res.send('post crud')
+    return res.render('homepage.ejs')
 }
 
 let displayCRUD = async (req, res) => {
@@ -37,6 +32,17 @@ let updateCRUD = async (req, res) => {
     return res.render('displayCRUD.ejs',{dataTable: allData});
 }
 
+let deleteCRUD = async (req, res) => {
+    let id = req.query.id;
+    if (id) {
+        await CRUDservice.deteleUser(id)
+        let allData = await CRUDservice.getAllData();
+        return res.render('displayCRUD.ejs',{dataTable: allData});
+    } else {
+        return res.send("User node found");
+    }
+}
+
 module.exports = {
     getHomePage,
     getAboutPage,
@@ -44,5 +50,6 @@ module.exports = {
     postCRUD,
     displayCRUD,
     editCRUD,
-    updateCRUD
+    updateCRUD,
+    deleteCRUD
 }

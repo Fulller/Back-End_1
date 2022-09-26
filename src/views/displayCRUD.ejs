@@ -51,7 +51,7 @@
               <td><%= dataTable[i].address %></td>
               <td>
                 <a class="btn btn-primary" href="/edit-crud?id=<%=dataTable[i].id%>" role="button">Edit</a>
-                <a class="btn btn-primary" href="#" role="button">Delete</a>
+                <a style="background-color: red;" class="btn btn-primary" href="/delete-crud?id=<%=dataTable[i].id%>" role="button">Delete</a>
               </td>
             </tr>
          <% } %>
