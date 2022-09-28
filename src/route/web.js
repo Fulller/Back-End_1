@@ -1,5 +1,6 @@
 import express from "express";
 import homeController from '../controllers/homeController'
+import userController from '../controllers/userContrller'
 let router = express.Router()
 
 let initWebRoutes = (app) => {
@@ -11,6 +12,7 @@ let initWebRoutes = (app) => {
     router.get('/edit-crud', homeController.editCRUD)
     router.post('/update-crud', homeController.updateCRUD)
     router.get('/delete-crud', homeController.deleteCRUD)
+    router.post('/api/login',userController.handleLogin)
     return app.use('/', router )
 }
 module.exports = initWebRoutes;
